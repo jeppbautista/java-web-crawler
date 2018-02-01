@@ -64,6 +64,7 @@ public class BALITACrawler implements CrawlerInterface
 				this.scrapeNews(currentUrl);
 			} catch (Exception e)
 			{
+				
 				e.printStackTrace();
 			}
 			
