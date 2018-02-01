@@ -14,12 +14,10 @@ import org.jsoup.select.*;
 
 import com.utils.model.News;
 
-import org.json.simple.JSONObject;
 
 public class ABSCBNCrawler implements CrawlerInterface
 {
-	private static final String ROOTcurrentUrl = "http://news.abs-cbn.com";
-	private Document doc;
+	private static final String ROOTURL = "http://news.abs-cbn.com";
 	private News model;
 	static int page;
 	private HashSet<String> links;
@@ -44,7 +42,7 @@ public class ABSCBNCrawler implements CrawlerInterface
 				String url = "";
 				for (Element article : articles)
 				{
-					url = ROOTcurrentUrl + (article.getElementsByTag("a").get(0).attr("href"));
+					url = ROOTURL + (article.getElementsByTag("a").get(0).attr("href"));
 					
 					try 
 					{
@@ -68,7 +66,7 @@ public class ABSCBNCrawler implements CrawlerInterface
 				}
 				
 				page++;
-				currentUrl = ROOTcurrentUrl + "/maiinit-na-balita?page=" + page;
+				currentUrl = ROOTURL + "/maiinit-na-balita?page=" + page;
 				this.scrapeNews(currentUrl);
 				
 			} catch (IOException e) {
